@@ -168,7 +168,7 @@
   }
   
   .animate-slide-left {
-    animation: slide-left 30s linear infinite;
+    animation: slide-left 15s linear infinite;
   }
   
   .animate-slide-right {
