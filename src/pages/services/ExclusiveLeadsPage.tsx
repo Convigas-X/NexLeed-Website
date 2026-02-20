@@ -54,16 +54,7 @@ function BackButton() {
 // Hero Section
 function ServiceHero() {
   return (
-    <section className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/assets/service-leads.jpg)' }}
-      />
-      
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black" />
-      
+    <section className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center justify-center overflow-hidden bg-black">
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
         <div 
