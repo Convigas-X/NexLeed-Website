@@ -52,6 +52,15 @@ function useIsValidRoute() {
   return validRoutes.includes(location.pathname);
 }
 
+// Watermark Component
+function Watermark() {
+  return (
+    <div className="fixed bottom-4 right-4 z-40 px-3 py-1.5 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full">
+      <span className="text-white/50 text-xs font-medium">(Site Under Construction) ~Convigas-X</span>
+    </div>
+  );
+}
+
 // Main App Layout
 function AppLayout() {
   const isValidRoute = useIsValidRoute();
@@ -85,6 +94,7 @@ function AppLayout() {
         </Routes>
       </main>
       {isValidRoute && <Footer />}
+      <Watermark />
     </div>
   );
 }
