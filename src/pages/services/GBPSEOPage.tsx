@@ -493,6 +493,119 @@ function PricingPlansSection() {
   );
 }
 
+// Investment Returns Section
+function InvestmentReturnsSection() {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
+  const milestones = [
+    {
+      period: '3 Months',
+      title: 'Initial Growth Phase',
+      metric: '+150%',
+      description: 'Average visibility increase',
+    },
+    {
+      period: '6 Months',
+      title: 'Market Leadership',
+      metric: 'Top 3',
+      description: 'Rankings achieved',
+    },
+    {
+      period: '12 Months',
+      title: 'Complete Dominance',
+      metric: '100%',
+      description: 'Sustained market control',
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 lg:py-24 bg-dark-card" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 
+            className="font-display text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-white mb-4"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          >
+            Investment <span className="text-gold">Returns</span>
+          </h2>
+          <p 
+            className="text-white/60 text-base sm:text-lg max-w-3xl mx-auto"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s',
+            }}
+          >
+            See how your premium investment translates into measurable business growth and market dominance over time.
+          </p>
+        </div>
+
+        {/* KPI Cards Container */}
+        <div 
+          className="bg-black border border-gold/30 rounded-2xl p-8 sm:p-12"
+          style={{
+            boxShadow: '0 0 30px rgba(195, 136, 27, 0.15), 0 0 60px rgba(195, 136, 27, 0.08), inset 0 0 20px rgba(195, 136, 27, 0.05)',
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s',
+          }}
+        >          
+          {/* KPI Cards */}
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            {milestones.map((milestone, index) => (
+              <div 
+                key={index}
+                className={`relative ${index < milestones.length - 1 ? 'md:border-r md:border-gold/20' : ''}`}
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                  transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${0.3 + index * 0.1}s`,
+                }}
+              >
+                {/* Period */}
+                <div className="text-sm font-medium text-gold mb-2 uppercase tracking-wider">
+                  {milestone.period}
+                </div>
+                
+                {/* Big Metric */}
+                <div className="font-display text-4xl sm:text-5xl lg:text-6xl text-gold mb-3">
+                  {milestone.metric}
+                </div>
+                
+                {/* Title */}
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
+                  {milestone.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-white/60 text-sm">
+                  {milestone.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Note */}
+        <p 
+          className="text-center text-white/40 text-sm mt-8"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s',
+          }}
+        >
+          Results may vary based on market competition and starting position.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 // Results Section
 function ResultsSection() {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
@@ -687,6 +800,7 @@ export function GBPSEOPage() {
       <FeaturesSection />
       <ProcessSection />
       <PricingPlansSection />
+      <InvestmentReturnsSection />
       <ResultsSection />
       <CTASection />
       <Footer />
