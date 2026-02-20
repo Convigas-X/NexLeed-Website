@@ -55,9 +55,14 @@ function useIsValidRoute() {
 // Watermark Component
 function Watermark() {
   return (
-    <div className="fixed bottom-4 right-4 z-40 px-3 py-1.5 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full">
-      <span className="text-white/50 text-xs font-medium">(Site Under Construction) ~Convigas-X</span>
-    </div>
+    <a 
+      href="https://react-portfolio-sage.vercel.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-4 right-4 z-40 px-3 py-1.5 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full hover:bg-gold/20 hover:border-gold/50 transition-all duration-300 group cursor-pointer"
+    >
+      <span className="text-white/50 text-xs font-medium group-hover:text-gold transition-colors duration-300">(Site Under Construction) ~Convigas-X</span>
+    </a>
   );
 }
 
