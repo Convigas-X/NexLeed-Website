@@ -3,6 +3,7 @@ import { Users, Zap, Calendar, Mail, CheckCircle, BarChart3, ArrowRight, Check, 
 import { Link } from 'react-router-dom';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { AnimatedNumber } from '@/hooks/useCountUp';
 
 // Custom hook for scroll animations
 function useScrollAnimation(options: { threshold?: number; rootMargin?: string; triggerOnce?: boolean } = {}) {
@@ -338,7 +339,7 @@ function StatsSection() {
                 transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${0.2 + index * 0.1}s`,
               }}
             >
-              <div className="text-4xl sm:text-5xl font-display text-gold mb-2">{stat.number}</div>
+              <div className="text-4xl sm:text-5xl font-display text-gold mb-2"><AnimatedNumber value={stat.number} /></div>
               <div className="text-white/60 text-sm">{stat.label}</div>
             </div>
           ))}

@@ -6,6 +6,7 @@ import {
 import { Link } from 'react-router-dom';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { AnimatedNumber } from '@/hooks/useCountUp';
 
 // Custom hook for scroll animations
 function useScrollAnimation(options: { threshold?: number; rootMargin?: string; triggerOnce?: boolean } = {}) {
@@ -120,7 +121,7 @@ function OverviewSection() {
                     transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${0.2 + index * 0.1}s`,
                   }}
                 >
-                  <div className="text-3xl sm:text-4xl font-display text-gold mb-2">{stat.number}</div>
+                  <div className="text-3xl sm:text-4xl font-display text-gold mb-2"><AnimatedNumber value={stat.number} /></div>
                   <div className="text-white/60 text-sm">{stat.label}</div>
                 </div>
               ))}
@@ -372,7 +373,7 @@ function ResultsSection() {
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center">
-                      <span className="text-lg font-display text-gold">{item.metric}</span>
+                      <span className="text-lg font-display text-gold"><AnimatedNumber value={item.metric} /></span>
                     </div>
                     <span className="text-white/70">{item.label}</span>
                   </div>

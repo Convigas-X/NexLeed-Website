@@ -6,6 +6,7 @@ import {
 import { Link } from 'react-router-dom';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { AnimatedNumber } from '@/hooks/useCountUp';
 
 // Custom hook for scroll animations
 function useScrollAnimation(options: { threshold?: number; rootMargin?: string; triggerOnce?: boolean } = {}) {
@@ -120,7 +121,7 @@ function OverviewSection() {
                     transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${0.2 + index * 0.1}s`,
                   }}
                 >
-                  <div className="text-3xl sm:text-4xl font-display text-gold mb-2">{stat.number}</div>
+                  <div className="text-3xl sm:text-4xl font-display text-gold mb-2"><AnimatedNumber value={stat.number} /></div>
                   <div className="text-white/60 text-sm">{stat.label}</div>
                 </div>
               ))}
@@ -447,7 +448,7 @@ function PricingPlansSection() {
 
               {/* Price */}
               <div className="mb-6">
-                <span className="font-display text-4xl sm:text-5xl text-gold">{plan.price}</span>
+                <span className="font-display text-4xl sm:text-5xl text-gold"><AnimatedNumber value={plan.price} /></span>
                 <span className="text-white/50 text-sm ml-1">{plan.period}</span>
               </div>
 
@@ -574,7 +575,7 @@ function InvestmentReturnsSection() {
                 
                 {/* Big Metric */}
                 <div className="font-display text-4xl sm:text-5xl lg:text-6xl text-gold mb-3">
-                  {milestone.metric}
+                  <AnimatedNumber value={milestone.metric} />
                 </div>
                 
                 {/* Title */}
@@ -648,7 +649,7 @@ function ResultsSection() {
                   }}
                 >
                   <div className="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl font-display text-gold">{item.metric}</span>
+                    <span className="text-2xl font-display text-gold"><AnimatedNumber value={item.metric} /></span>
                   </div>
                   <span className="text-white/70">{item.label}</span>
                 </div>
@@ -686,19 +687,19 @@ function ResultsSection() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-4 bg-dark-card rounded-xl">
                   <span className="text-white/60">Profile Views</span>
-                  <span className="text-gold font-semibold">+284%</span>
+                  <span className="text-gold font-semibold"><AnimatedNumber value="+284%" /></span>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-dark-card rounded-xl">
                   <span className="text-white/60">Search Appearances</span>
-                  <span className="text-gold font-semibold">+412%</span>
+                  <span className="text-gold font-semibold"><AnimatedNumber value="+412%" /></span>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-dark-card rounded-xl">
                   <span className="text-white/60">Direction Requests</span>
-                  <span className="text-gold font-semibold">+156%</span>
+                  <span className="text-gold font-semibold"><AnimatedNumber value="+156%" /></span>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-dark-card rounded-xl">
                   <span className="text-white/60">Phone Calls</span>
-                  <span className="text-gold font-semibold">+198%</span>
+                  <span className="text-gold font-semibold"><AnimatedNumber value="+198%" /></span>
                 </div>
               </div>
             </div>
