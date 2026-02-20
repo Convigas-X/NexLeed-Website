@@ -110,6 +110,7 @@ function ServicesList() {
       description: 'Targeted campaigns and data-driven processes designed to deliver high-intent inquiries directly to you.',
       features: ['Verified Leads', 'Market Specific Targeting', 'No Shared Leads', 'Simple Intake Process'],
       image: '/assets/service-leads.jpg',
+      link: '/services/exclusive-leads',
     },
     {
       icon: BarChart3,

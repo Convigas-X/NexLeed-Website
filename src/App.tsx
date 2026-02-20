@@ -13,6 +13,7 @@ import { ModernWebsitesPage } from './pages/services/ModernWebsitesPage';
 import { GBPSEOPage } from './pages/services/GBPSEOPage';
 import { StreamlinedSystemsPage } from './pages/services/StreamlinedSystemsPage';
 import { PerformanceAdvertisingPage } from './pages/services/PerformanceAdvertisingPage';
+import { ExclusiveLeadsPage } from './pages/services/ExclusiveLeadsPage';
 import { initGA, useAnalytics } from './lib/analytics';
 
 // Initialize analytics on app load
@@ -61,6 +62,7 @@ function AppLayout() {
           <Route path="/services/gbp-seo" element={<GBPSEOPage />} />
           <Route path="/services/streamlined-systems" element={<StreamlinedSystemsPage />} />
           <Route path="/services/performance-advertising" element={<PerformanceAdvertisingPage />} />
+          <Route path="/services/exclusive-leads" element={<ExclusiveLeadsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
