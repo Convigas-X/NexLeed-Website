@@ -9,6 +9,7 @@ import { AboutUs } from './pages/AboutUs';
 import { CaseStudies } from './pages/CaseStudies';
 import { ContactUs } from './pages/ContactUs';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { ModernWebsitesPage } from './pages/services/ModernWebsitesPage';
 import { initGA, useAnalytics } from './lib/analytics';
 
 // Initialize analytics on app load
@@ -53,6 +54,7 @@ function AppLayout() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/services/modern-websites" element={<ModernWebsitesPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

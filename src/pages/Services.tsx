@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { 
-  Check, Zap, Settings, Target, BarChart3, Users, MessageSquare, ArrowUpRight, MapPin
+  Check, Zap, Settings, Target, BarChart3, Users, MessageSquare, ArrowUpRight, MapPin, ChevronRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -83,6 +83,7 @@ function ServicesList() {
       description: 'Clean, fast, and purpose-driven websites built to highlight your brand and create a seamless experience for your clients.',
       features: ['Custom Layouts', 'Property Focused', 'Mobile Ready Pages', 'Fast & Secure Performance'],
       image: '/assets/service-website.jpg',
+      link: '/services/modern-websites',
     },
     {
       icon: MapPin,
@@ -175,11 +176,8 @@ function ServiceItem({ service, index }: { service: any; index: number }) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const isEven = index % 2 === 0;
 
-  return (
-    <div
-      ref={ref}
-      className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center"
-    >
+  const content = (
+    <>
       {/* Content */}
       <div className={isEven ? '' : 'lg:order-2'}>
         <div 
@@ -193,9 +191,14 @@ function ServiceItem({ service, index }: { service: any; index: number }) {
           <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gold/10 rounded-xl flex items-center justify-center">
             <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-gold" />
           </div>
+          {service.link && (
+            <span className="text-gold text-sm font-medium flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              Learn More <ChevronRight className="w-4 h-4 ml-1" />
+            </span>
+          )}
         </div>
         <h3 
-          className="font-display text-2xl sm:text-3xl lg:text-4xl text-white mb-3 sm:mb-4"
+          className="font-display text-2xl sm:text-3xl lg:text-4xl text-white mb-3 sm:mb-4 group-hover:text-gold transition-colors duration-300"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateX(0)' : `translateX(${isEven ? '-30px' : '30px'})`,
@@ -237,7 +240,7 @@ function ServiceItem({ service, index }: { service: any; index: number }) {
       {/* Image */}
       <div className={isEven ? '' : 'lg:order-1'}>
         <div 
-          className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-dark-border hover:border-gold/30 transition-all duration-500 group"
+          className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-dark-border hover:border-gold/30 transition-all duration-500 group/image"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateX(0) scale(1)' : `translateX(${isEven ? '40px' : '-40px'}) scale(0.95)`,
@@ -247,11 +250,33 @@ function ServiceItem({ service, index }: { service: any; index: number }) {
           <img
             src={service.image}
             alt={service.title}
-            className="w-full h-64 sm:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-64 sm:h-80 lg:h-96 object-cover group-hover/image:scale-105 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          {service.link && (
+            <div className="absolute bottom-4 right-4 bg-gold text-black px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center gap-2">
+              View Details <ArrowUpRight className="w-4 h-4" />
+            </div>
+          )}
         </div>
       </div>
+    </>
+  );
+
+  return (
+    <div
+      ref={ref}
+      className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center"
+    >
+      {service.link ? (
+        <Link to={service.link} className="contents">
+          <div className="group cursor-pointer contents">
+            {content}
+          </div>
+        </Link>
+      ) : (
+        content
+      )}
     </div>
   );
 }
