@@ -546,14 +546,103 @@ function InvestmentReturnsSection() {
           </p>
         </div>
 
+        {/* KPI Graph */}
+        <div 
+          className="mb-12"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s',
+          }}
+        >
+          <div className="bg-black border border-gold/30 rounded-2xl p-6 sm:p-8" style={{ boxShadow: '0 0 30px rgba(195, 136, 27, 0.15), 0 0 60px rgba(195, 136, 27, 0.08), inset 0 0 20px rgba(195, 136, 27, 0.05)' }}>
+            {/* Chart Header */}
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h3 className="text-white font-semibold text-lg">Growth Trajectory</h3>
+                <p className="text-white/60 text-sm">Projected visibility increase over time</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-gold rounded-full"></div>
+                <span className="text-white/60 text-sm">Visibility Score</span>
+              </div>
+            </div>
+
+            {/* SVG Chart */}
+            <div className="relative h-48 sm:h-64">
+              <svg className="w-full h-full" viewBox="0 0 600 200" preserveAspectRatio="none">
+                {/* Grid lines */}
+                <line x1="0" y1="50" x2="600" y2="50" stroke="rgba(195, 136, 27, 0.1)" strokeWidth="1" />
+                <line x1="0" y1="100" x2="600" y2="100" stroke="rgba(195, 136, 27, 0.1)" strokeWidth="1" />
+                <line x1="0" y1="150" x2="600" y2="150" stroke="rgba(195, 136, 27, 0.1)" strokeWidth="1" />
+                
+                {/* Growth curve */}
+                <defs>
+                  <linearGradient id="growthGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="rgba(195, 136, 27, 0.3)" />
+                    <stop offset="100%" stopColor="rgba(195, 136, 27, 0)" />
+                  </linearGradient>
+                </defs>
+                
+                {/* Area under curve */}
+                <path 
+                  d="M 0 180 Q 100 170 150 140 Q 200 110 300 80 Q 400 40 500 20 L 600 10 L 600 180 L 0 180 Z" 
+                  fill="url(#growthGradient)"
+                  style={{
+                    opacity: isVisible ? 1 : 0,
+                    transition: 'opacity 1s ease-out 0.5s'
+                  }}
+                />
+                
+                {/* Main curve line */}
+                <path 
+                  d="M 0 180 Q 100 170 150 140 Q 200 110 300 80 Q 400 40 500 20 L 600 10" 
+                  fill="none" 
+                  stroke="#C3881B" 
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  style={{
+                    strokeDasharray: 1000,
+                    strokeDashoffset: isVisible ? 0 : 1000,
+                    transition: 'stroke-dashoffset 2s ease-out 0.3s'
+                  }}
+                />
+
+                {/* Data points */}
+                <circle cx="150" cy="140" r="6" fill="#C3881B" stroke="black" strokeWidth="2" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.5s ease-out 0.8s' }} />
+                <circle cx="300" cy="80" r="6" fill="#C3881B" stroke="black" strokeWidth="2" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.5s ease-out 1.2s' }} />
+                <circle cx="600" cy="10" r="6" fill="#C3881B" stroke="black" strokeWidth="2" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.5s ease-out 1.6s' }} />
+
+                {/* Value labels */}
+                <text x="150" y="125" fill="#C3881B" fontSize="12" textAnchor="middle" fontWeight="bold" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.5s ease-out 1s' }}>+150%</text>
+                <text x="300" y="65" fill="#C3881B" fontSize="12" textAnchor="middle" fontWeight="bold" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.5s ease-out 1.4s' }}>Top 3</text>
+                <text x="600" y="25" fill="#C3881B" fontSize="12" textAnchor="end" fontWeight="bold" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.5s ease-out 1.8s' }}>100%</text>
+              </svg>
+
+              {/* X-axis labels */}
+              <div className="flex justify-between mt-4 px-4">
+                <div className="text-center">
+                  <div className="text-gold text-sm font-semibold">Month 3</div>
+                  <div className="text-white/50 text-xs">Initial Growth</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-gold text-sm font-semibold">Month 6</div>
+                  <div className="text-white/50 text-xs">Leadership</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-gold text-sm font-semibold">Month 12</div>
+                  <div className="text-white/50 text-xs">Dominance</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* KPI Cards Container */}
         <div 
           className="bg-black border border-gold/30 rounded-2xl p-8 sm:p-12"
           style={{
             boxShadow: '0 0 30px rgba(195, 136, 27, 0.15), 0 0 60px rgba(195, 136, 27, 0.08), inset 0 0 20px rgba(195, 136, 27, 0.05)',
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s',
           }}
         >          
           {/* KPI Cards */}
@@ -575,7 +664,7 @@ function InvestmentReturnsSection() {
                 
                 {/* Big Metric */}
                 <div className="font-display text-4xl sm:text-5xl lg:text-6xl text-gold mb-3">
-                  <AnimatedNumber value={milestone.metric} />
+                  {milestone.metric}
                 </div>
                 
                 {/* Title */}
