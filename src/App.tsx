@@ -18,6 +18,7 @@ import { DedicatedSupportPage } from './pages/services/DedicatedSupportPage';
 import { BrandContentPage } from './pages/services/BrandContentPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsConditionsPage } from './pages/TermsConditionsPage';
+import { RealEstateGrowthTipsPage } from './pages/resources/RealEstateGrowthTipsPage';
 import { initGA, useAnalytics } from './lib/analytics';
 
 // Initialize analytics on app load
@@ -71,6 +72,7 @@ function AppLayout() {
           <Route path="/services/brand-content" element={<BrandContentPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-and-conditions" element={<TermsConditionsPage />} />
+          <Route path="/resources/real-estate-growth-tips" element={<RealEstateGrowthTipsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

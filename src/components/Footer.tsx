@@ -22,12 +22,12 @@ export function Footer() {
   ];
 
   const resources = [
-    'Buyer–Seller Guide',
-    'Real Estate Growth Tips',
-    'Lead Generation Strategies',
-    'CRM Best Practices',
-    'Agent Branding Guide',
-    'Social Media Tips for Agents',
+    { label: 'Buyer–Seller Guide', href: '/buyer-seller' },
+    { label: 'Real Estate Growth Tips', href: '/resources/real-estate-growth-tips' },
+    { label: 'Lead Generation Strategies', href: '#' },
+    { label: 'CRM Best Practices', href: '#' },
+    { label: 'Agent Branding Guide', href: '#' },
+    { label: 'Social Media Tips for Agents', href: '#' },
   ];
 
   return (
@@ -98,13 +98,22 @@ export function Footer() {
             <h4 className="text-white font-medium mb-4">Resources</h4>
             <ul className="space-y-3">
               {resources.map((resource) => (
-                <li key={resource}>
-                  <a
-                    href="#"
-                    className="text-white/60 hover:text-gold text-sm transition-colors duration-300"
-                  >
-                    {resource}
-                  </a>
+                <li key={resource.label}>
+                  {resource.href.startsWith('/') ? (
+                    <Link
+                      to={resource.href}
+                      className="text-white/60 hover:text-gold text-sm transition-colors duration-300"
+                    >
+                      {resource.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={resource.href}
+                      className="text-white/60 hover:text-gold text-sm transition-colors duration-300"
+                    >
+                      {resource.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
