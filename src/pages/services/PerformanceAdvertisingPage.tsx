@@ -42,9 +42,9 @@ function useScrollAnimation(options: { threshold?: number; rootMargin?: string; 
 // Hero Section
 function ServiceHero() {
   return (
-    <section className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 py-20 max-w-5xl mx-auto">
         <div 
           className="inline-flex items-center px-4 py-2 bg-gold/10 border border-gold/30 rounded-full mb-6"
           style={{ animation: 'fadeInUp 1s ease-out forwards', opacity: 0 }}
