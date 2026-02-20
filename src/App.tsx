@@ -11,6 +11,7 @@ import { ContactUs } from './pages/ContactUs';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { ModernWebsitesPage } from './pages/services/ModernWebsitesPage';
 import { GBPSEOPage } from './pages/services/GBPSEOPage';
+import { StreamlinedSystemsPage } from './pages/services/StreamlinedSystemsPage';
 import { initGA, useAnalytics } from './lib/analytics';
 
 // Initialize analytics on app load
@@ -57,6 +58,7 @@ function AppLayout() {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/services/modern-websites" element={<ModernWebsitesPage />} />
           <Route path="/services/gbp-seo" element={<GBPSEOPage />} />
+          <Route path="/services/streamlined-systems" element={<StreamlinedSystemsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

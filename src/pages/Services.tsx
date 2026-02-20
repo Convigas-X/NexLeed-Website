@@ -101,6 +101,7 @@ function ServicesList() {
       description: 'Organized pipelines and automated follow-ups that help agents manage clients with more structure and less effort.',
       features: ['Lead Routing', 'Smart Follow ups', 'Appointment Flows', 'Centralized Communication'],
       image: '/assets/service-gbp-seo.jpg',
+      link: '/services/streamlined-systems',
     },
     {
       icon: Target,
