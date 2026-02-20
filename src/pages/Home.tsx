@@ -10,7 +10,7 @@ import { useScrollAnimation, useStaggerAnimation } from '@/hooks/useScrollAnimat
 // Hero Section
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-end justify-start overflow-hidden">
+    <section className="relative min-h-screen flex items-center sm:items-end justify-center sm:justify-start overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -21,7 +21,7 @@ function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
       
       {/* Content */}
-      <div className="relative z-10 text-left px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20 pt-24 sm:pt-28 lg:pt-20 max-w-4xl">
+      <div className="relative z-10 text-center sm:text-left px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20 pt-24 sm:pt-28 lg:pt-20 max-w-4xl">
         <h1 
           className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight mb-4 sm:mb-6 animate-fade-in-up"
           style={{ animation: 'fadeInUp 1s ease-out forwards', animationDelay: '0.2s', opacity: 0 }}
