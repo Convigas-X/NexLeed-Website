@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { 
   Headphones, Calendar, CheckCircle, Clock, Mail, FileText, Check, ArrowUpRight, 
-  Phone, Rocket, ChevronRight, Award, BarChart3
+  Phone, Rocket, ChevronRight, Award, BarChart3,
+  Sparkles, Crown, Gem
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Navigation } from '@/components/Navigation';
@@ -433,6 +434,170 @@ function BenefitsSection() {
   );
 }
 
+// Pricing Plans Section
+function PricingPlansSection() {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
+  const plans = [
+    {
+      icon: Sparkles,
+      name: 'Part-Time VA',
+      price: '$799',
+      subtitle: '20 hours/week of dedicated support',
+      features: [
+        '20 Hours per Week',
+        'CRM Management',
+        'Email & Calendar Management',
+        'Lead Follow-ups',
+        'Basic Data Entry',
+        '30 Days Support',
+      ],
+      popular: false,
+    },
+    {
+      icon: Crown,
+      name: 'Full-Time VA',
+      price: '$1,499',
+      subtitle: '40 hours/week complete support solution',
+      features: [
+        '40 Hours per Week',
+        'Everything in Part-Time',
+        'Transaction Coordination',
+        'Client Communication',
+        'Document Management',
+        'Social Media Posting',
+        '90 Days Support',
+      ],
+      popular: true,
+    },
+    {
+      icon: Gem,
+      name: 'Team Support',
+      price: '$2,999',
+      subtitle: 'Dedicated team for brokerages',
+      features: [
+        '80 Hours per Week',
+        '2 Dedicated Assistants',
+        'Advanced CRM Automation',
+        'Listing Management',
+        'Marketing Support',
+        'Reporting & Analytics',
+        'Priority Support',
+        '6 Months Support',
+      ],
+      popular: false,
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 lg:py-24 bg-black" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 
+            className="font-display text-2xl sm:text-3xl lg:text-4xl text-white mb-4"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          >
+            Transparent <span className="text-gold">Pricing</span>
+          </h2>
+          <p 
+            className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s',
+            }}
+          >
+            Choose the perfect plan for your virtual assistant needs. No hidden fees, just results.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {plans.map((plan, index) => (
+            <div 
+              key={index}
+              className={`relative rounded-2xl p-6 sm:p-8 transition-all duration-500 group ${
+                plan.popular 
+                  ? 'bg-gold/5 border-2 border-gold scale-105 z-10' 
+                  : 'bg-dark-card border border-dark-border hover:border-gold/50'
+              }`}
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible 
+                  ? plan.popular ? 'translateY(-8px) scale(1.02)' : 'translateY(0)' 
+                  : 'translateY(30px)',
+                transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${0.2 + index * 0.1}s`,
+              }}
+            >
+              {/* Popular Badge */}
+              {plan.popular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-black px-4 py-1 rounded-full text-sm font-semibold">
+                  Most Popular
+                </div>
+              )}
+
+              {/* Icon */}
+              <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${
+                plan.popular ? 'bg-gold' : 'bg-gold/10'
+              }`}>
+                <plan.icon className={`w-7 h-7 ${plan.popular ? 'text-black' : 'text-gold'}`} />
+              </div>
+
+              {/* Plan Name */}
+              <h3 className="font-display text-xl text-white mb-1">{plan.name}</h3>
+              <p className="text-white/50 text-sm mb-4">{plan.subtitle}</p>
+
+              {/* Price */}
+              <div className="mb-6">
+                <span className="font-display text-4xl sm:text-5xl text-gold">{plan.price}</span>
+                <span className="text-white/50 text-sm ml-2">/month</span>
+              </div>
+
+              {/* Features */}
+              <ul className="space-y-3 mb-8">
+                {plan.features.map((feature, fIndex) => (
+                  <li key={fIndex} className="flex items-start gap-3">
+                    <div className="w-5 h-5 bg-gold/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-gold" />
+                    </div>
+                    <span className="text-white/70 text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA Button */}
+              <Link
+                to="/contact-us"
+                className={`block w-full py-4 rounded-full font-medium text-center transition-all duration-300 ${
+                  plan.popular
+                    ? 'bg-gold text-black hover:bg-gold-light hover:shadow-gold-lg'
+                    : 'bg-white/10 text-white hover:bg-gold hover:text-black'
+                }`}
+              >
+                Get Started
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        {/* Trust Note */}
+        <p 
+          className="text-center text-white/40 text-sm mt-10"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s',
+          }}
+        >
+          All plans include free consultation. No surprises, no hidden fees.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 // CTA Section
 function CTASection() {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 });
@@ -524,6 +689,7 @@ export function DedicatedSupportPage() {
       <FeaturesSection />
       <ProcessSection />
       <BenefitsSection />
+      <PricingPlansSection />
       <CTASection />
       <Footer />
     </div>
