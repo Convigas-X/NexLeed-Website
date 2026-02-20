@@ -135,9 +135,9 @@ export function Footer() {
             © 2025 NexLeed. All rights reserved.
           </p>
           <div className="flex space-x-4 sm:space-x-6 mt-3 sm:mt-0">
-            <a href="#" className="text-white/40 hover:text-gold text-xs sm:text-sm transition-colors duration-300">
+            <Link to="/privacy-policy" className="text-white/40 hover:text-gold text-xs sm:text-sm transition-colors duration-300">
               Privacy Policy
-            </a>
+            </Link>
             <a href="#" className="text-white/40 hover:text-gold text-xs sm:text-sm transition-colors duration-300">
               Terms & Conditions
             </a>
