@@ -31,10 +31,13 @@ export function Navigation() {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
-  const allNavLinks = [
+  const leftNavLinks = [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
     { label: 'Buyer Seller', href: '/buyer-seller' },
+  ];
+
+  const rightNavLinks = [
     { label: 'About us', href: '/about-us' },
     { label: 'Case Studies', href: '/case-studies' },
     { label: 'Contact us', href: '/contact-us' },
@@ -58,26 +61,9 @@ export function Navigation() {
     >
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="flex items-center justify-between h-20">
-          {/* Logo - Far Left Corner */}
-          <Link 
-            to="/" 
-            className="flex items-center flex-shrink-0 group"
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? 'translateX(0)' : 'translateX(-30px)',
-              transition: 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s',
-            }}
-          >
-            <img 
-              src="/assets/Main-Logo.svg" 
-              alt="NexLeed" 
-              className="h-8 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
-            />
-          </Link>
-
-          {/* Navigation Links - Far Right Corner */}
-          <div className="hidden md:flex items-center justify-end space-x-6 lg:space-x-8 flex-shrink-0">
-            {allNavLinks.map((link, index) => (
+          {/* Left Navigation Links */}
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8 flex-1">
+            {leftNavLinks.map((link, index) => (
               <Link
                 key={link.label}
                 to={link.href}
@@ -92,7 +78,6 @@ export function Navigation() {
               >
                 <span className="relative">
                   {link.label}
-                  {/* Animated underline */}
                   <span 
                     className={`absolute -bottom-1 left-0 h-0.5 bg-gold transition-all duration-300 ease-out ${
                       isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
@@ -102,7 +87,62 @@ export function Navigation() {
                     }}
                   />
                 </span>
-                {/* Hover glow effect */}
+                <span 
+                  className={`absolute inset-0 -z-10 bg-gold/5 rounded-lg transition-opacity duration-300 ${
+                    isActive(link.href) ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`}
+                  style={{
+                    transform: 'scale(1.2)',
+                    margin: '-4px -8px',
+                  }}
+                />
+              </Link>
+            ))}
+          </div>
+
+          {/* Center Logo */}
+          <Link 
+            to="/" 
+            className="flex items-center flex-shrink-0 group mx-4"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(-20px)',
+              transition: 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s',
+            }}
+          >
+            <img 
+              src="/assets/Main-Logo.svg" 
+              alt="NexLeed" 
+              className="h-8 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+            />
+          </Link>
+
+          {/* Right Navigation Links */}
+          <div className="hidden md:flex items-center justify-end space-x-6 lg:space-x-8 flex-1">
+            {rightNavLinks.map((link, index) => (
+              <Link
+                key={link.label}
+                to={link.href}
+                className={`relative text-sm font-medium whitespace-nowrap transition-colors duration-300 ${
+                  isActive(link.href) ? 'text-gold' : 'text-white/80 hover:text-gold'
+                }`}
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(-15px)',
+                  transition: `opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${0.2 + index * 0.08}s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${0.2 + index * 0.08}s, color 0.3s ease`,
+                }}
+              >
+                <span className="relative">
+                  {link.label}
+                  <span 
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-gold transition-all duration-300 ease-out ${
+                      isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
+                    style={{
+                      transition: 'width 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                    }}
+                  />
+                </span>
                 <span 
                   className={`absolute inset-0 -z-10 bg-gold/5 rounded-lg transition-opacity duration-300 ${
                     isActive(link.href) ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
@@ -131,7 +171,6 @@ export function Navigation() {
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
               <div className="relative w-6 h-6">
-                {/* Animated hamburger to X */}
                 <Menu 
                   className={`w-6 h-6 absolute inset-0 transition-all duration-300 ${
                     isMobileMenuOpen ? 'opacity-0 rotate-90 scale-0' : 'opacity-100 rotate-0 scale-100'
@@ -158,7 +197,7 @@ export function Navigation() {
         }}
       >
         <div className="px-4 py-6 space-y-2">
-          {allNavLinks.map((link, index) => (
+          {[...leftNavLinks, ...rightNavLinks].map((link, index) => (
             <Link
               key={link.label}
               to={link.href}
