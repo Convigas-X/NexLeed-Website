@@ -125,11 +125,15 @@ export function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
             <div className="flex items-center space-x-3">
               <Phone className="w-5 h-5 text-gold flex-shrink-0" />
-              <span className="text-white/60 text-sm">+1 (512) 566-0340</span>
+              <a href="tel:+15125660340" className="text-white/60 text-sm hover:text-gold transition-colors duration-300">
+                +1 (512) 566-0340
+              </a>
             </div>
             <div className="flex items-center space-x-3">
               <Mail className="w-5 h-5 text-gold flex-shrink-0" />
-              <span className="text-white/60 text-sm">support@nexleed.com</span>
+              <a href="mailto:support@nexleed.com" className="text-white/60 text-sm hover:text-gold transition-colors duration-300">
+                support@nexleed.com
+              </a>
             </div>
             <div className="flex items-center space-x-3">
               <MapPin className="w-5 h-5 text-gold flex-shrink-0" />
