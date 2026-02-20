@@ -92,6 +92,7 @@ function ServicesList() {
       description: 'Comprehensive Google Business Profile optimization and local SEO strategies to dominate local search results and attract nearby clients actively searching for your services.',
       features: ['Profile Optimization', 'Local Rank Tracking', 'Review Management', 'Google Maps Visibility'],
       image: '/assets/service-crm.jpg',
+      link: '/services/gbp-seo',
     },
     {
       icon: Settings,

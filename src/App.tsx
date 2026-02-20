@@ -10,6 +10,7 @@ import { CaseStudies } from './pages/CaseStudies';
 import { ContactUs } from './pages/ContactUs';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { ModernWebsitesPage } from './pages/services/ModernWebsitesPage';
+import { GBPSEOPage } from './pages/services/GBPSEOPage';
 import { initGA, useAnalytics } from './lib/analytics';
 
 // Initialize analytics on app load
@@ -55,6 +56,7 @@ function AppLayout() {
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/services/modern-websites" element={<ModernWebsitesPage />} />
+          <Route path="/services/gbp-seo" element={<GBPSEOPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
