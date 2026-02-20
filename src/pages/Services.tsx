@@ -128,6 +128,7 @@ function ServicesList() {
       description: 'Trained assistants who help maintain your CRM, manage follow-ups, and support your day-to-day communication.',
       features: ['CRM Updates', 'Lead Qualification', 'Appointment', 'Admin Support'],
       image: '/assets/service-support.jpg',
+      link: '/services/dedicated-support',
     },
     {
       icon: MessageSquare,
