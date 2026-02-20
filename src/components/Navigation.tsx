@@ -47,7 +47,7 @@ export function Navigation() {
       ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-black/70 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]' 
+          ? 'bg-black/70 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)]' 
           : 'bg-transparent'
       }`}
       style={{
@@ -150,7 +150,7 @@ export function Navigation() {
 
       {/* Mobile Menu with slide animation */}
       <div 
-        className={`md:hidden backdrop-blur-2xl border-t border-white/10 overflow-hidden transition-all duration-500 ease-out shadow-[0_8px_32px_rgba(0,0,0,0.4)] ${
+        className={`md:hidden backdrop-blur-2xl overflow-hidden transition-all duration-500 ease-out shadow-[0_8px_32px_rgba(0,0,0,0.4)] ${
           isMobileMenuOpen ? 'max-h-96 opacity-100 bg-black/80' : 'max-h-0 opacity-0 bg-black/70'
         }`}
         style={{
