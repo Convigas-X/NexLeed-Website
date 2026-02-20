@@ -118,6 +118,7 @@ function ServicesList() {
       description: 'Well-structured campaigns across major platforms to help agents increase visibility and generate consistent opportunities.',
       features: ['Facebook & Instagram', 'Google & Youtube', 'Conversion Based Setup', 'Ongoing Optimization'],
       image: '/assets/service-ads.jpg',
+      link: '/services/performance-advertising',
     },
     {
       icon: Users,
