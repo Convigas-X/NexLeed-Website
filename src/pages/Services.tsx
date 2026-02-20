@@ -44,6 +44,7 @@ function useScrollAnimation(options: { threshold?: number; rootMargin?: string; 
 // Hero Section
 function ServicesHero() {
   return (
+    <>
     <section className="relative min-h-[50vh] sm:min-h-[60vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
@@ -70,6 +71,10 @@ function ServicesHero() {
         </p>
       </div>
     </section>
+
+      {/* Spacer */}
+      <div className="h-16 sm:h-20 lg:h-24 bg-black" />
+    </>
   );
 }
 
