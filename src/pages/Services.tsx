@@ -90,7 +90,7 @@ function ServicesList() {
       subtitle: '& Local Optimization',
       description: 'Comprehensive Google Business Profile optimization and local SEO strategies to dominate local search results and attract nearby clients actively searching for your services.',
       features: ['Profile Optimization', 'Local Rank Tracking', 'Review Management', 'Google Maps Visibility'],
-      image: '/assets/service-gbp-seo.jpg',
+      image: '/assets/service-crm.jpg',
     },
     {
       icon: Settings,
@@ -98,7 +98,7 @@ function ServicesList() {
       subtitle: 'and Workflows',
       description: 'Organized pipelines and automated follow-ups that help agents manage clients with more structure and less effort.',
       features: ['Lead Routing', 'Smart Follow ups', 'Appointment Flows', 'Centralized Communication'],
-      image: '/assets/service-crm.jpg',
+      image: '/assets/service-gbp-seo.jpg',
     },
     {
       icon: Target,
