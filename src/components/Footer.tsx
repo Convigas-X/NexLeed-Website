@@ -24,7 +24,7 @@ export function Footer() {
   const resources = [
     { label: 'Buyer–Seller Guide', href: '/buyer-seller' },
     { label: 'Real Estate Growth Tips', href: '/resources/real-estate-growth-tips' },
-    { label: 'Lead Generation Strategies', href: '#' },
+    { label: 'Lead Generation Strategies', href: '/resources/lead-generation-strategies' },
     { label: 'CRM Best Practices', href: '#' },
     { label: 'Agent Branding Guide', href: '#' },
     { label: 'Social Media Tips for Agents', href: '#' },
