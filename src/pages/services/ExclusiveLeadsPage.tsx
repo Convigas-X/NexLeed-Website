@@ -430,49 +430,49 @@ function PricingPlansSection() {
   const plans = [
     {
       icon: Sparkles,
-      name: 'Lead Starter',
-      price: '$999',
-      subtitle: 'Perfect for new agents building pipeline',
+      name: 'Essential',
+      price: '$300',
+      period: '/yearly',
+      subtitle: 'Ideal For New Agents',
       features: [
-        '10-15 Qualified Leads/Month',
-        'Buyer & Seller Leads',
-        'Lead Qualification',
-        'CRM Integration',
-        'Basic Follow-up Sequence',
-        '30 Days Campaign',
+        '15-20 Verified Leads Yearly',
+        'ISA Verified Leads',
+        'Direct CRM Delivery',
+        'Lead Tracking Tools',
+        '22% Average Conversion',
+        '20% On Closed Transactions',
       ],
       popular: false,
     },
     {
       icon: Crown,
-      name: 'Growth Accelerator',
-      price: '$1,999',
-      subtitle: 'Most popular for active agents',
+      name: 'Professional',
+      price: '$700',
+      period: '/yearly',
+      subtitle: 'Ideal For Active Agents',
       features: [
-        '25-35 Qualified Leads/Month',
-        'Everything in Starter',
-        'Exclusive Territory',
-        'Multi-Channel Campaigns',
-        'Advanced Nurturing',
-        'Appointment Setting',
-        '90 Days Campaign',
+        '20-26 Booked Appointments Yearly',
+        'ISA Verified Booked Appointments',
+        'Full CRM Integration Included',
+        'Includes Dashboard Access',
+        '30% Average Conversion',
+        '15% Referral Fee',
       ],
       popular: true,
     },
     {
       icon: Gem,
-      name: 'Market Dominator',
-      price: '$3,999',
-      subtitle: 'Complete market coverage solution',
+      name: 'Executive',
+      price: '$1,200',
+      period: '/yearly',
+      subtitle: 'Ideal For Premier Agents',
       features: [
-        '50-70 Qualified Leads/Month',
-        'Everything in Growth',
-        'Multiple ZIP Codes',
-        'Retargeting Campaigns',
-        'Custom Landing Pages',
-        'Priority Lead Delivery',
-        'Dedicated Manager',
-        '6 Months Campaign',
+        '30-40 Prospects Transferred Yearly',
+        'ISA Verified Live Transfers',
+        'Advanced CRM Automation',
+        'Detailed Performance Dashboards',
+        '40% Average Conversion',
+        '10% Referral Fee',
       ],
       popular: false,
     },
@@ -490,7 +490,7 @@ function PricingPlansSection() {
               transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
           >
-            Transparent <span className="text-gold">Pricing</span>
+            Pricing
           </h2>
           <p 
             className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto"
@@ -500,7 +500,7 @@ function PricingPlansSection() {
               transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s',
             }}
           >
-            Choose the perfect plan for your lead generation needs. No hidden fees, just results.
+            Pricing depends on market, volume, and campaign scope. All campaigns are customized to balance lead quality and consistency.
           </p>
         </div>
 
@@ -542,7 +542,7 @@ function PricingPlansSection() {
               {/* Price */}
               <div className="mb-6">
                 <span className="font-display text-4xl sm:text-5xl text-gold">{plan.price}</span>
-                <span className="text-white/50 text-sm ml-2">/month</span>
+                <span className="text-white/50 text-sm ml-1">{plan.period}</span>
               </div>
 
               {/* Features */}
@@ -566,7 +566,7 @@ function PricingPlansSection() {
                     : 'bg-white/10 text-white hover:bg-gold hover:text-black'
                 }`}
               >
-                Get Started
+                Get On Board
               </Link>
             </div>
           ))}
