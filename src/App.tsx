@@ -22,6 +22,7 @@ import { RealEstateGrowthTipsPage } from './pages/resources/RealEstateGrowthTips
 import { LeadGenerationStrategiesPage } from './pages/resources/LeadGenerationStrategiesPage';
 import { CRMBestPracticesPage } from './pages/resources/CRMBestPracticesPage';
 import { AgentBrandingGuidePage } from './pages/resources/AgentBrandingGuidePage';
+import { SocialMediaTipsPage } from './pages/resources/SocialMediaTipsPage';
 import { initGA, useAnalytics } from './lib/analytics';
 
 // Initialize analytics on app load
@@ -79,6 +80,7 @@ function AppLayout() {
           <Route path="/resources/lead-generation-strategies" element={<LeadGenerationStrategiesPage />} />
           <Route path="/resources/crm-best-practices" element={<CRMBestPracticesPage />} />
           <Route path="/resources/agent-branding-guide" element={<AgentBrandingGuidePage />} />
+          <Route path="/resources/social-media-tips" element={<SocialMediaTipsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
