@@ -15,6 +15,7 @@ import { StreamlinedSystemsPage } from './pages/services/StreamlinedSystemsPage'
 import { PerformanceAdvertisingPage } from './pages/services/PerformanceAdvertisingPage';
 import { ExclusiveLeadsPage } from './pages/services/ExclusiveLeadsPage';
 import { DedicatedSupportPage } from './pages/services/DedicatedSupportPage';
+import { BrandContentPage } from './pages/services/BrandContentPage';
 import { initGA, useAnalytics } from './lib/analytics';
 
 // Initialize analytics on app load
@@ -65,6 +66,7 @@ function AppLayout() {
           <Route path="/services/performance-advertising" element={<PerformanceAdvertisingPage />} />
           <Route path="/services/exclusive-leads" element={<ExclusiveLeadsPage />} />
           <Route path="/services/dedicated-support" element={<DedicatedSupportPage />} />
+          <Route path="/services/brand-content" element={<BrandContentPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

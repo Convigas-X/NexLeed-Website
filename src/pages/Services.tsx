@@ -137,6 +137,7 @@ function ServicesList() {
       description: 'Simple, effective content that strengthens your presence and keeps your brand active across social platforms.',
       features: ['Posts & Stories', 'Brand Consistency', 'Scheduling', 'Light Engagement Support'],
       image: '/assets/service-content.jpg',
+      link: '/services/brand-content',
     },
   ];
 
