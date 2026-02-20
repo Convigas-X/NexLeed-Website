@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { 
   MapPin, Search, TrendingUp, Star, Shield, MessageSquare, Check, ArrowUpRight, 
-  Globe, BarChart3, Award, Rocket, ChevronRight, ArrowLeft
+  Globe, BarChart3, Award, Rocket, ChevronRight
 } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
 
 // Custom hook for scroll animations
 function useScrollAnimation(options: { threshold?: number; rootMargin?: string; triggerOnce?: boolean } = {}) {
@@ -34,21 +36,6 @@ function useScrollAnimation(options: { threshold?: number; rootMargin?: string; 
   }, [threshold, rootMargin, triggerOnce]);
 
   return { ref, isVisible };
-}
-
-// Back Button Component
-function BackButton() {
-  const navigate = useNavigate();
-  
-  return (
-    <button
-      onClick={() => navigate(-1)}
-      className="fixed top-4 left-4 z-50 flex items-center gap-2 px-4 py-2 bg-black/50 backdrop-blur-md border border-white/10 text-white rounded-full hover:bg-gold hover:text-black hover:border-gold transition-all duration-300 group"
-    >
-      <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
-      <span className="text-sm font-medium">Back</span>
-    </button>
-  );
 }
 
 // Hero Section
@@ -530,13 +517,14 @@ function CTASection() {
 export function GBPSEOPage() {
   return (
     <div className="min-h-screen bg-black">
-      <BackButton />
+      <Navigation />
       <ServiceHero />
       <OverviewSection />
       <FeaturesSection />
       <ProcessSection />
       <ResultsSection />
       <CTASection />
+      <Footer />
     </div>
   );
 }
