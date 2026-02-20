@@ -42,7 +42,7 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
   return { ref, isVisible };
 }
 
-export function useStaggerAnimation(itemCount: number, options: UseScrollAnimationOptions = {}) {
+export function useStaggerAnimation(_itemCount: number, options: UseScrollAnimationOptions = {}) {
   const { threshold = 0.1, rootMargin = '0px 0px -50px 0px', triggerOnce = true } = options;
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);

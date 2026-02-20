@@ -80,7 +80,7 @@ function WhoWeAreSection() {
   ];
   
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
-  const { containerRef: statsRef, isVisible: statsVisible, getStaggerDelay } = useStaggerAnimation(4);
+  const { containerRef: statsRef, isVisible: statsVisible } = useStaggerAnimation(4);
 
   return (
     <section id="about" className="py-16 sm:py-20 lg:py-24 bg-black" ref={sectionRef}>
