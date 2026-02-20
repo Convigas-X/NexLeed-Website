@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { 
-  Check, Zap, Settings, Target, BarChart3, Users, MessageSquare, ArrowUpRight
+  Check, Zap, Settings, Target, BarChart3, Users, MessageSquare, ArrowUpRight, MapPin
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -83,6 +83,14 @@ function ServicesList() {
       description: 'Clean, fast, and purpose-driven websites built to highlight your brand and create a seamless experience for your clients.',
       features: ['Custom Layouts', 'Property Focused', 'Mobile Ready Pages', 'Fast & Secure Performance'],
       image: '/assets/service-website.jpg',
+    },
+    {
+      icon: MapPin,
+      title: 'GBP SEO',
+      subtitle: '& Local Optimization',
+      description: 'Comprehensive Google Business Profile optimization and local SEO strategies to dominate local search results and attract nearby clients actively searching for your services.',
+      features: ['Profile Optimization', 'Local Rank Tracking', 'Review Management', 'Google Maps Visibility'],
+      image: '/assets/service-leads.jpg',
     },
     {
       icon: Settings,
