@@ -47,8 +47,7 @@ function useScrollAnimation(options: { threshold?: number; rootMargin?: string; 
 // Hero Section
 function ContactHero() {
   return (
-    <>
-    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-end justify-start overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -56,10 +55,10 @@ function ContactHero() {
       />
       
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
       
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
+      <div className="relative z-10 text-left px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20 pt-24 sm:pt-28 lg:pt-20 max-w-4xl">
         <h1 
           className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6"
           style={{ animation: 'fadeInUp 1s ease-out forwards', animationDelay: '0.2s', opacity: 0 }}
@@ -67,17 +66,13 @@ function ContactHero() {
           Let's <span className="text-gold">Connect</span>
         </h1>
         <p 
-          className="text-white/70 text-lg sm:text-xl max-w-2xl mx-auto"
+          className="text-white/70 text-lg sm:text-xl max-w-2xl"
           style={{ animation: 'fadeInUp 1s ease-out forwards', animationDelay: '0.4s', opacity: 0 }}
         >
           We're here to answer your questions and help you take the next step with confidence.
         </p>
       </div>
     </section>
-
-      {/* Spacer */}
-      <div className="h-16 sm:h-20 lg:h-24 bg-black" />
-    </>
   );
 }
 

@@ -44,8 +44,7 @@ function useScrollAnimation(options: { threshold?: number; rootMargin?: string; 
 // Hero Section
 function ServicesHero() {
   return (
-    <>
-    <section className="relative min-h-[50vh] sm:min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-end justify-start overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -53,10 +52,10 @@ function ServicesHero() {
       />
       
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
       
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
+      <div className="relative z-10 text-left px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20 pt-24 sm:pt-28 lg:pt-20 max-w-4xl">
         <h1 
           className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight mb-4 sm:mb-6"
           style={{ animation: 'fadeInUp 1s ease-out forwards', animationDelay: '0.2s', opacity: 0 }}
@@ -64,17 +63,13 @@ function ServicesHero() {
           Our <span className="text-gold">Services</span>
         </h1>
         <p 
-          className="text-white/70 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto"
+          className="text-white/70 text-base sm:text-lg lg:text-xl max-w-2xl"
           style={{ animation: 'fadeInUp 1s ease-out forwards', animationDelay: '0.4s', opacity: 0 }}
         >
           Thoughtfully crafted solutions designed to support modern real estate professionals.
         </p>
       </div>
     </section>
-
-      {/* Spacer */}
-      <div className="h-16 sm:h-20 lg:h-24 bg-black" />
-    </>
   );
 }
 
