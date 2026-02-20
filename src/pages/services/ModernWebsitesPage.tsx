@@ -518,7 +518,7 @@ function PricingPlansSection() {
 
               {/* Price */}
               <div className="mb-6">
-                <span className="font-display text-4xl sm:text-5xl text-gold"><AnimatedNumber value={plan.price} /></span>
+                <span className="font-display text-4xl sm:text-5xl text-gold">{plan.price}</span>
                 <span className="text-white/50 text-sm ml-2">one-time</span>
               </div>
 
