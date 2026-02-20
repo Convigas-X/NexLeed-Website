@@ -12,12 +12,13 @@ export function Footer() {
   ];
 
   const services = [
-    'Streamlined Systems & Workflows',
-    'Performance Driven Advertising',
-    'Modern Website for Real Estate',
-    'Exclusive Buyer & Seller Leads',
-    'Dedicated Support',
-    'Brand Aligned Content',
+    { label: 'Modern Websites', href: '/services/modern-websites' },
+    { label: 'GBP SEO & Local Optimization', href: '/services/gbp-seo' },
+    { label: 'Streamlined Systems', href: '/services/streamlined-systems' },
+    { label: 'Performance Advertising', href: '/services/performance-advertising' },
+    { label: 'Exclusive Leads', href: '/services/exclusive-leads' },
+    { label: 'Dedicated Support', href: '/services/dedicated-support' },
+    { label: 'Brand Content', href: '/services/brand-content' },
   ];
 
   const resources = [
@@ -80,12 +81,12 @@ export function Footer() {
             <h4 className="text-white font-medium mb-4">Services</h4>
             <ul className="space-y-3">
               {services.map((service) => (
-                <li key={service}>
+                <li key={service.label}>
                   <Link
-                    to="/services"
+                    to={service.href}
                     className="text-white/60 hover:text-gold text-sm transition-colors duration-300"
                   >
-                    {service}
+                    {service.label}
                   </Link>
                 </li>
               ))}
