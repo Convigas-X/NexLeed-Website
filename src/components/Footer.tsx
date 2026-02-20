@@ -25,7 +25,7 @@ export function Footer() {
     { label: 'Buyer–Seller Guide', href: '/buyer-seller' },
     { label: 'Real Estate Growth Tips', href: '/resources/real-estate-growth-tips' },
     { label: 'Lead Generation Strategies', href: '/resources/lead-generation-strategies' },
-    { label: 'CRM Best Practices', href: '#' },
+    { label: 'CRM Best Practices', href: '/resources/crm-best-practices' },
     { label: 'Agent Branding Guide', href: '#' },
     { label: 'Social Media Tips for Agents', href: '#' },
   ];
