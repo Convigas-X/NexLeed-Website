@@ -139,9 +139,9 @@ function OverviewSection() {
           >
             <div className="relative rounded-2xl overflow-hidden border border-dark-border">
               <img
-                src="/assets/service-gbp-seo.jpg"
+                src="/assets/CRM.png"
                 alt="Streamlined CRM Systems"
-                className="w-full h-80 sm:h-96 object-cover"
+                className="w-full h-80 sm:h-96 object-cover object-left"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>

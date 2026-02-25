@@ -376,7 +376,7 @@ function ContactFormSection() {
 
             <div className="space-y-4 sm:space-y-6">
               {[
-                { icon: Phone, label: 'Call Us', value: '+1 (512) 566-0340', color: 'text-gold' },
+                { icon: Phone, label: 'Call Us', value: '+1 (209) 243 1235', color: 'text-gold' },
                 { icon: Mail, label: 'Email', value: 'support@nexleed.com', color: 'text-gold' },
                 { icon: MapPin, label: 'Office', value: '5900 Balcones Dr, STE 100', subValue: 'Austin, TX 78731', color: 'text-white' },
               ].map((item, index) => (

@@ -77,12 +77,21 @@ function ServicesHero() {
 function ServicesList() {
   const services = [
     {
+      icon: Target,
+      title: 'Exclusive Buyer',
+      subtitle: '& Seller Leads',
+      description: 'Targeted campaigns and data-driven processes designed to deliver high-intent inquiries directly to you.',
+      features: ['Verified Leads', 'Market Specific Targeting', 'No Shared Leads', 'Simple Intake Process'],
+      image: '/assets/service-leads.jpg',
+      link: '/services/exclusive-leads',
+    },
+    {
       icon: Zap,
       title: 'Modern Websites',
       subtitle: 'for Real Estate',
       description: 'Clean, fast, and purpose-driven websites built to highlight your brand and create a seamless experience for your clients.',
       features: ['Custom Layouts', 'Property Focused', 'Mobile Ready Pages', 'Fast & Secure Performance'],
-      image: '/assets/service-website.jpg',
+      image: '/assets/Website.png',
       link: '/services/modern-websites',
     },
     {
@@ -91,7 +100,7 @@ function ServicesList() {
       subtitle: '& Local Optimization',
       description: 'Comprehensive Google Business Profile optimization and local SEO strategies to dominate local search results and attract nearby clients actively searching for your services.',
       features: ['Profile Optimization', 'Local Rank Tracking', 'Review Management', 'Google Maps Visibility'],
-      image: '/assets/service-crm.jpg',
+      image: '/assets/GBP.png',
       link: '/services/gbp-seo',
     },
     {
@@ -100,17 +109,8 @@ function ServicesList() {
       subtitle: 'and Workflows',
       description: 'Organized pipelines and automated follow-ups that help agents manage clients with more structure and less effort.',
       features: ['Lead Routing', 'Smart Follow ups', 'Appointment Flows', 'Centralized Communication'],
-      image: '/assets/service-gbp-seo.jpg',
+      image: '/assets/CRM.png',
       link: '/services/streamlined-systems',
-    },
-    {
-      icon: Target,
-      title: 'Exclusive Buyer',
-      subtitle: '& Seller Leads',
-      description: 'Targeted campaigns and data-driven processes designed to deliver high-intent inquiries directly to you.',
-      features: ['Verified Leads', 'Market Specific Targeting', 'No Shared Leads', 'Simple Intake Process'],
-      image: '/assets/service-leads.jpg',
-      link: '/services/exclusive-leads',
     },
     {
       icon: BarChart3,
@@ -256,7 +256,7 @@ function ServiceItem({ service, index }: { service: any; index: number }) {
           <img
             src={service.image}
             alt={service.title}
-            className="w-full h-64 sm:h-80 lg:h-96 object-cover group-hover/image:scale-105 transition-transform duration-700"
+            className={`w-full h-64 sm:h-80 lg:h-96 object-cover group-hover/image:scale-105 transition-transform duration-700 ${index === 3 ? 'object-left' : ''}`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           {service.link && (

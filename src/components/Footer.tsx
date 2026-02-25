@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Linkedin, Instagram, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, Linkedin, Instagram, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function Footer() {
@@ -47,14 +47,14 @@ export function Footer() {
               Premium Leads & Real Estate Solutions
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-dark-border rounded-lg flex items-center justify-center text-white/60 hover:bg-gold hover:text-black transition-all duration-300">
+              <a href="https://www.linkedin.com/company/nexleed-re-us/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-dark-border rounded-lg flex items-center justify-center text-white/60 hover:bg-gold hover:text-black transition-all duration-300">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-dark-border rounded-lg flex items-center justify-center text-white/60 hover:bg-gold hover:text-black transition-all duration-300">
+              <a href="https://www.instagram.com/nexleeddotcom?igsh=amZ1bDJwaGpqaWZu" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-dark-border rounded-lg flex items-center justify-center text-white/60 hover:bg-gold hover:text-black transition-all duration-300">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-dark-border rounded-lg flex items-center justify-center text-white/60 hover:bg-gold hover:text-black transition-all duration-300">
-                <Twitter className="w-5 h-5" />
+              <a href="https://www.facebook.com/share/1D4j8yJuE4/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-dark-border rounded-lg flex items-center justify-center text-white/60 hover:bg-gold hover:text-black transition-all duration-300">
+                <Facebook className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -125,8 +125,8 @@ export function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
             <div className="flex items-center space-x-3">
               <Phone className="w-5 h-5 text-gold flex-shrink-0" />
-              <a href="tel:+15125660340" className="text-white/60 text-sm hover:text-gold transition-colors duration-300">
-                +1 (512) 566-0340
+              <a href="tel:+12092431235" className="text-white/60 text-sm hover:text-gold transition-colors duration-300">
+                +1 (209) 243 1235
               </a>
             </div>
             <div className="flex items-center space-x-3">

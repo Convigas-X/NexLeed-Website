@@ -23,6 +23,8 @@ import { LeadGenerationStrategiesPage } from './pages/resources/LeadGenerationSt
 import { CRMBestPracticesPage } from './pages/resources/CRMBestPracticesPage';
 import { AgentBrandingGuidePage } from './pages/resources/AgentBrandingGuidePage';
 import { SocialMediaTipsPage } from './pages/resources/SocialMediaTipsPage';
+import { OnboardingPage } from './pages/OnboardingPage';
+import { AdminDashboard } from './pages/admin';
 import { initGA, useAnalytics } from './lib/analytics';
 
 // Initialize analytics on app load
@@ -50,20 +52,6 @@ function useIsValidRoute() {
   const location = useLocation();
   const validRoutes = ['/', '/services', '/buyer-seller', '/about-us', '/case-studies', '/contact-us'];
   return validRoutes.includes(location.pathname);
-}
-
-// Watermark Component
-function Watermark() {
-  return (
-    <a 
-      href="https://react-portfolio-sage.vercel.app/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-4 right-4 z-40 px-3 py-1.5 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full hover:bg-gold/20 hover:border-gold/50 transition-all duration-300 group cursor-pointer"
-    >
-      <span className="text-white/50 text-xs font-medium group-hover:text-gold transition-colors duration-300">(Site Under Construction) ~Convigas-X</span>
-    </a>
-  );
 }
 
 // Main App Layout
@@ -95,11 +83,22 @@ function AppLayout() {
           <Route path="/resources/crm-best-practices" element={<CRMBestPracticesPage />} />
           <Route path="/resources/agent-branding-guide" element={<AgentBrandingGuidePage />} />
           <Route path="/resources/social-media-tips" element={<SocialMediaTipsPage />} />
+          <Route path="/onboarding" element={<OnboardingPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       {isValidRoute && <Footer />}
-      <Watermark />
+    </div>
+  );
+}
+
+// Admin Layout - separate from main layout (no nav/footer)
+function AdminLayout() {
+  return (
+    <div className="min-h-screen bg-black">
+      <Routes>
+        <Route path="/*" element={<AdminDashboard />} />
+      </Routes>
     </div>
   );
 }
@@ -110,7 +109,10 @@ function App() {
     <BrowserRouter>
       <AnalyticsTracker />
       <ScrollToTop />
-      <AppLayout />
+      <Routes>
+        <Route path="/admin/*" element={<AdminLayout />} />
+        <Route path="/*" element={<AppLayout />} />
+      </Routes>
     </BrowserRouter>
   );
 }

@@ -334,10 +334,10 @@ function PortfolioSection() {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const websites = [
-    { name: 'Modern Minimalist', style: 'Clean & Elegant', image: '/assets/asset_1.jpg' },
-    { name: 'Luxury Collection', style: 'Premium & Sophisticated', image: '/assets/asset_2.jpg' },
-    { name: 'Urban Living', style: 'Contemporary & Bold', image: '/assets/asset_3.jpg' },
-    { name: 'Coastal Properties', style: 'Bright & Inviting', image: '/assets/asset_4.jpg' },
+    { name: 'Luxury Experience', style: 'Premium & Sophisticated', image: '/assets/Luxury Experience.png', link: 'https://realestatesite-bay.vercel.app/' },
+    { name: 'Luxury', style: 'Clean & Elegant', image: '/assets/Luxury Minimal.png', link: 'https://jessica-arias.vercel.app/' },
+    { name: 'Modern', style: 'Contemporary & Bold', image: '/assets/asset_2.jpg', link: 'https://dewayneupchurch.com/' },
+    { name: 'Material U', style: 'Fresh & Dynamic', image: '/assets/Modern.png', link: 'https://dany-tiptan.vercel.app/' },
   ];
 
   return (
@@ -366,28 +366,42 @@ function PortfolioSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {websites.map((site, index) => (
-            <div 
+            <a 
               key={index}
-              className="group relative rounded-xl overflow-hidden border border-dark-border hover:border-gold/50 transition-all duration-500"
+              href={site.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative rounded-2xl overflow-hidden border border-dark-border hover:border-gold/60 hover:shadow-gold/20 hover:-translate-y-1 transition-all duration-500 block"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
                 transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${0.2 + index * 0.1}s`,
               }}
             >
-              <img
-                src={site.image}
-                alt={site.name}
-                className="w-full h-64 sm:h-72 object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="font-display text-lg text-white mb-1">{site.name}</h3>
-                <p className="text-gold text-sm">{site.style}</p>
+              <div className="relative h-48 sm:h-56 overflow-hidden">
+                <img
+                  src={site.image}
+                  alt={site.name}
+                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/10 transition-colors duration-300" />
               </div>
-            </div>
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                <h3 className="font-display text-base sm:text-lg text-white mb-1 group-hover:text-gold transition-colors duration-300">{site.name}</h3>
+                <p className="text-white/70 text-xs sm:text-sm">{site.style}</p>
+              </div>
+              <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </div>
+              </div>
+            </a>
           ))}
         </div>
       </div>

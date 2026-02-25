@@ -370,24 +370,24 @@ function ValuesSection() {
 function TeamSection() {
   const team = [
     {
-      name: 'Alex Thompson',
+      name: 'Leo Rodriguez',
       role: 'Founder & CEO',
-      image: '/assets/testimonial-2.jpg',
+      image: '/assets/Leo Rodriguez.jpg',
     },
     {
-      name: 'Sarah Chen',
+      name: 'Bruce Myers',
       role: 'Head of Operations',
-      image: '/assets/testimonial-1.jpg',
+      image: '/assets/Marcus Aurelius.jpg',
     },
     {
-      name: 'Michael Rodriguez',
-      role: 'Lead Developer',
-      image: '/assets/testimonial-4.jpg',
+      name: 'Sean Murphy',
+      role: 'Research & Development Engineer',
+      image: '/assets/Sean Murphy.png',
     },
     {
-      name: 'Emily Watson',
+      name: 'Amy West',
       role: 'Marketing Director',
-      image: '/assets/testimonial-3.jpg',
+      image: '/assets/Lakshmiraj Pande.jpg',
     },
   ];
 
@@ -470,7 +470,11 @@ function TeamSection() {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                  className={`w-full h-56 sm:h-64 object-cover transition-transform duration-500 ${
+                    index <= 1 ? 'object-[top] group-hover:scale-105' :
+                    index === 2 ? 'object-top group-hover:scale-105' :
+                    'object-top group-hover:scale-105'
+                  }`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { 
-  ArrowUpRight, TrendingUp, Target, BarChart3, Check
+  ArrowUpRight, Check
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -66,8 +66,63 @@ function CaseStudiesHero() {
           className="text-white/70 text-lg sm:text-xl max-w-2xl"
           style={{ animation: 'fadeInUp 1s ease-out forwards', animationDelay: '0.4s', opacity: 0 }}
         >
-          Real results from real clients. See how we've helped agents transform their businesses.
+          A closer look at the work we do and the results we help create.
         </p>
+      </div>
+    </section>
+  );
+}
+
+// Intro Section
+function IntroSection() {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
+  return (
+    <section className="py-16 sm:py-20 lg:py-24 bg-black" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-4xl mx-auto">
+          <h2 
+            className="font-display text-2xl sm:text-3xl lg:text-4xl text-white mb-6"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          >
+            Each <span className="text-gold">project</span> reflects a simple goal:
+          </h2>
+          
+          <h3 
+            className="font-display text-xl sm:text-2xl lg:text-3xl text-white mb-8"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s',
+            }}
+          >
+            To give real estate professionals the clarity, structure, and tools they need to work <span className="text-gold">efficiently.</span>
+          </h3>
+          
+          <div 
+            className="w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent mb-8"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'scaleX(1)' : 'scaleX(0)',
+              transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s',
+            }}
+          />
+          
+          <p 
+            className="text-white/60 text-base sm:text-lg"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s',
+            }}
+          >
+            Here are a few examples of how our solutions have supported agents in different markets.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -85,8 +140,11 @@ function CaseStudyItem({ study, index }: { study: any; index: number }) {
     >
       {/* Image */}
       <div className={isEven ? '' : 'lg:order-2'}>
-        <div 
-          className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-dark-border hover:border-gold/30 transition-all duration-500 group"
+        <a
+          href={study.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block relative rounded-xl sm:rounded-2xl overflow-hidden border border-dark-border hover:border-gold/30 transition-all duration-500 group"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateX(0) scale(1)' : `translateX(${isEven ? '-40px' : '40px'}) scale(0.95)`,
@@ -96,7 +154,7 @@ function CaseStudyItem({ study, index }: { study: any; index: number }) {
           <img
             src={study.image}
             alt={study.title}
-            className="w-full h-72 sm:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-700"
+            className={`w-full h-72 sm:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-700 ${study.title.includes('CRM') ? 'object-left' : ''}`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
           
@@ -119,7 +177,7 @@ function CaseStudyItem({ study, index }: { study: any; index: number }) {
               ))}
             </div>
           </div>
-        </div>
+        </a>
       </div>
 
       {/* Content */}
@@ -139,7 +197,7 @@ function CaseStudyItem({ study, index }: { study: any; index: number }) {
         </div>
         
         <h3 
-          className="font-display text-xl sm:text-2xl lg:text-3xl text-white mb-4"
+          className="font-display text-xl sm:text-2xl lg:text-3xl text-white mb-2"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -150,7 +208,18 @@ function CaseStudyItem({ study, index }: { study: any; index: number }) {
         </h3>
         
         <p 
-          className="text-white/60 mb-6 sm:mb-8"
+          className="text-gold text-lg mb-4"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s',
+          }}
+        >
+          {study.subtitle}
+        </p>
+        
+        <p 
+          className="text-white/60 mb-6 sm:mb-8 whitespace-pre-line"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -160,7 +229,7 @@ function CaseStudyItem({ study, index }: { study: any; index: number }) {
           {study.description}
         </p>
 
-        {/* Challenges */}
+        {/* Features */}
         <div 
           className="mb-6"
           style={{
@@ -170,11 +239,11 @@ function CaseStudyItem({ study, index }: { study: any; index: number }) {
           }}
         >
           <h4 className="text-white font-medium mb-3 flex items-center">
-            <TrendingUp className="w-4 h-4 text-gold mr-2" />
-            Challenges
+            <Check className="w-4 h-4 text-gold mr-2" />
+            Key Features
           </h4>
           <ul className="space-y-2">
-            {study.challenges.map((item: string, cIndex: number) => (
+            {study.features.map((item: string, cIndex: number) => (
               <li 
                 key={cIndex} 
                 className="flex items-center space-x-2 text-white/60 text-sm"
@@ -190,228 +259,122 @@ function CaseStudyItem({ study, index }: { study: any; index: number }) {
             ))}
           </ul>
         </div>
-
-        {/* Solutions */}
-        <div 
-          className="mb-6"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateX(0)' : `translateX(${isEven ? '-20px' : '20px'})`,
-            transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s',
-          }}
-        >
-          <h4 className="text-white font-medium mb-3 flex items-center">
-            <Target className="w-4 h-4 text-gold mr-2" />
-            Solutions
-          </h4>
-          <ul className="space-y-2">
-            {study.solutions.map((item: string, sIndex: number) => (
-              <li 
-                key={sIndex} 
-                className="flex items-center space-x-2 text-white/60 text-sm"
-                style={{
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateX(0)' : `translateX(${isEven ? '-15px' : '15px'})`,
-                  transition: `all 0.4s cubic-bezier(0.16, 1, 0.3, 1) ${0.6 + sIndex * 0.08}s`,
-                }}
-              >
-                <Check className="w-4 h-4 text-gold flex-shrink-0" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Results */}
-        <div
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateX(0)' : `translateX(${isEven ? '-20px' : '20px'})`,
-            transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s',
-          }}
-        >
-          <h4 className="text-white font-medium mb-3 flex items-center">
-            <BarChart3 className="w-4 h-4 text-gold mr-2" />
-            Results
-          </h4>
-          <ul className="space-y-2">
-            {study.results.map((item: string, rIndex: number) => (
-              <li 
-                key={rIndex} 
-                className="flex items-center space-x-2 text-white/60 text-sm"
-                style={{
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateX(0)' : `translateX(${isEven ? '-15px' : '15px'})`,
-                  transition: `all 0.4s cubic-bezier(0.16, 1, 0.3, 1) ${0.7 + rIndex * 0.08}s`,
-                }}
-              >
-                <Check className="w-4 h-4 text-gold flex-shrink-0" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </div>
   );
 }
 
-// Case Studies List
+// Case Studies List Section
 function CaseStudiesList() {
   const caseStudies = [
     {
-      title: 'How Sarah M. Tripled Her Lead Generation in 90 Days',
-      client: 'Sarah Mitchell',
-      location: 'California',
-      category: 'Lead Generation',
-      image: '/assets/service-leads.jpg',
+      image: '/assets/case-dewayne.png',
+      title: 'Dewayne Upchurch',
+      subtitle: 'Realtor Website Design',
+      category: 'Website Design',
+      location: 'Premium Portfolio',
+      description: `A modern portfolio experience crafted for a high-end real estate professional.
+
+The site elevates DeWayne's premium listings, local expertise, and personalized services through a clean, refined layout.
+
+Designed for speed, mobile responsiveness, and visual impact, the platform creates a smooth, luxurious browsing experience that builds trust and supports effortless lead generation.`,
+      link: 'https://dewayneupchurch.com',
       stats: [
-        { label: 'Lead Increase', value: '300%' },
-        { label: 'Conversion Rate', value: '24%' },
-        { label: 'ROI', value: '450%' },
+        { value: '3x', label: 'Lead Increase' },
+        { value: '40%', label: 'Faster Load' },
+        { value: '100%', label: 'Mobile Ready' },
       ],
-      description: 'Sarah was struggling to generate consistent leads for her real estate business. After implementing our comprehensive lead generation strategy, she saw a 300% increase in qualified leads within just 90 days.',
-      challenges: [
-        'Inconsistent lead flow',
-        'Low conversion rates',
-        'Limited marketing budget',
-      ],
-      solutions: [
-        'Targeted Facebook & Instagram campaigns',
-        'Optimized landing pages',
-        'Automated follow-up sequences',
-      ],
-      results: [
-        '300% increase in qualified leads',
-        '24% conversion rate improvement',
-        '450% return on investment',
+      features: [
+        'Premium listing showcase',
+        'Local expertise highlights',
+        'Mobile-first responsive design',
+        'Fast loading optimized',
       ],
     },
     {
-      title: "Transforming a Brokerage's Digital Presence",
-      client: 'Metro Realty Group',
-      location: 'Texas',
-      category: 'Website & Branding',
-      image: '/assets/service-website.jpg',
+      image: '/assets/Luxury Experience.png',
+      title: 'Real Estate 360',
+      subtitle: 'Realtor Website Design',
+      category: 'Branding',
+      location: 'Investment Consultant',
+      description: `A personal branding website built for a consultant specializing in real estate investments and joint ventures.
+
+The design highlights credibility and expertise through strong hero visuals, structured service insights, and elegant branded sections.
+
+The layout balances storytelling with a high-end consulting aesthetic, positioning the agent as a trusted authority in the real estate advisory space.`,
+      link: 'https://realestatesite-bay.vercel.app/',
       stats: [
-        { label: 'Traffic Increase', value: '180%' },
-        { label: 'Lead Capture', value: '65%' },
-        { label: 'Page Speed', value: '98/100' },
+        { value: '5x', label: 'Engagement' },
+        { value: '60%', label: 'More Leads' },
+        { value: 'Premium', label: 'Brand Look' },
       ],
-      description: 'Metro Realty Group needed a complete digital overhaul. We redesigned their website, implemented CRM automation, and created a cohesive brand identity that resonated with their target market.',
-      challenges: [
-        'Outdated website design',
-        'Poor user experience',
-        'No lead capture system',
-      ],
-      solutions: [
-        'Modern, responsive website design',
-        'Integrated CRM system',
-        'Brand-aligned visual identity',
-      ],
-      results: [
-        '180% increase in website traffic',
-        '65% improvement in lead capture',
-        '98/100 page speed score',
+      features: [
+        'Strong hero visuals',
+        'Service insights section',
+        'Elegant branded design',
+        'Authority positioning',
       ],
     },
     {
-      title: 'Scaling a Solo Agent to a Top Producer',
-      client: 'James Wilson',
-      location: 'Florida',
-      category: 'Full Service',
-      image: '/assets/service-crm.jpg',
+      image: '/assets/case-jessica.png',
+      title: 'Jessica Arias',
+      subtitle: 'Realtor Website Design',
+      category: 'Landing Platform',
+      location: 'Property Showcase',
+      description: `A dedicated landing platform engineered for showcasing property listings with clarity and confidence.
+
+This design features a bold hero section, focused property modules, trust indicators, and intuitive CTAs.
+
+Optimized for both desktop and mobile, it empowers agents to present listings beautifully, build trust quickly, and convert qualified leads with ease.`,
+      link: 'https://jessicaarias.net',
       stats: [
-        { label: 'Sales Volume', value: '+$2.5M' },
-        { label: 'Time Saved', value: '15hrs/wk' },
-        { label: 'Client Growth', value: '150%' },
+        { value: '2.5x', label: 'Conversion' },
+        { value: '50%', label: 'Bounce Rate' },
+        { value: 'Mobile', label: 'Optimized' },
       ],
-      description: 'James was a solo agent looking to scale his business. Our comprehensive solution including website, CRM, advertising, and virtual assistant support helped him become a top producer in his market.',
-      challenges: [
-        'Limited time for marketing',
-        'No systems in place',
-        'Difficulty scaling operations',
-      ],
-      solutions: [
-        'Complete digital ecosystem',
-        'Dedicated virtual assistant',
-        'Performance-driven advertising',
-      ],
-      results: [
-        '$2.5M increase in sales volume',
-        '15 hours saved per week',
-        '150% client base growth',
+      features: [
+        'Bold hero section',
+        'Property modules',
+        'Trust indicators',
+        'Intuitive CTAs',
       ],
     },
     {
-      title: 'Maximizing ROI with Strategic Ad Campaigns',
-      client: 'Elite Properties Team',
-      location: 'New York',
-      category: 'Paid Advertising',
-      image: '/assets/service-ads.jpg',
+      image: '/assets/CRM.png',
+      title: 'AI-Powered CRM Dashboard',
+      subtitle: 'Real Estate CRM',
+      category: 'CRM System',
+      location: 'Workflow Automation',
+      description: `A conceptual CRM dashboard designed to simplify the daily workflow of real estate professionals.
+
+Built around smart lead tracking, automated reminders, analytics, and client management, the platform blends clean UI with powerful functionality.
+
+The interface focuses on clarity, speed, and ease of use—helping agents stay organized and operate efficiently with minimal friction.`,
+      link: '/services/streamlined-systems',
       stats: [
-        { label: 'Cost Per Lead', value: '-40%' },
-        { label: 'Lead Quality', value: '+85%' },
-        { label: 'Ad Spend', value: '$50K/mo' },
+        { value: '10x', label: 'Efficiency' },
+        { value: 'AI', label: 'Powered' },
+        { value: '24/7', label: 'Automation' },
       ],
-      description: 'Elite Properties was spending heavily on ads with poor results. We restructured their campaigns, optimized targeting, and implemented conversion tracking to maximize their advertising ROI.',
-      challenges: [
-        'High cost per lead',
-        'Poor ad performance',
-        'Lack of tracking',
-      ],
-      solutions: [
-        'Campaign restructuring',
-        'Advanced targeting',
-        'Conversion optimization',
-      ],
-      results: [
-        '40% reduction in cost per lead',
-        '85% improvement in lead quality',
-        'Scalable $50K monthly ad spend',
+      features: [
+        'Smart lead tracking',
+        'Automated reminders',
+        'Analytics dashboard',
+        'Client management',
       ],
     },
   ];
 
-  const headerRef = useRef<HTMLDivElement>(null);
-  const [headerVisible, setHeaderVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHeaderVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    if (headerRef.current) {
-      observer.observe(headerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-black">
+    <section className="py-16 sm:py-20 lg:py-24 bg-dark-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div 
-          ref={headerRef}
-          className="text-center mb-12 sm:mb-16"
-          style={{
-            opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? 'translateY(0)' : 'translateY(30px)',
-            transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-          }}
-        >
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-white mb-3 sm:mb-4">
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Success <span className="text-gold">Stories</span>
           </h2>
           <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto">
-            Real results that speak for themselves
+            Real results from real clients. See how we've helped agents transform their businesses.
           </p>
         </div>
 
@@ -419,133 +382,6 @@ function CaseStudiesList() {
         <div className="space-y-20 sm:space-y-24 lg:space-y-32">
           {caseStudies.map((study, index) => (
             <CaseStudyItem key={index} study={study} index={index} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Testimonials Section
-function TestimonialsSection() {
-  const testimonials = [
-    {
-      quote: "NexLeed completely transformed how we approach digital marketing. The results speak for themselves.",
-      name: 'Sarah Mitchell',
-      role: 'Real Estate Agent — California',
-      image: '/assets/testimonial-1.jpg',
-    },
-    {
-      quote: "Working with NexLeed was the best decision we made for our brokerage. Highly recommended!",
-      name: 'David Chen',
-      role: 'Broker Owner — Texas',
-      image: '/assets/testimonial-2.jpg',
-    },
-    {
-      quote: "The team at NexLeed understands real estate like no one else. They delivered beyond our expectations.",
-      name: 'Jennifer Adams',
-      role: 'Team Leader — Florida',
-      image: '/assets/testimonial-3.jpg',
-    },
-  ];
-
-  const headerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-  const [headerVisible, setHeaderVisible] = useState(false);
-  const [gridVisible, setGridVisible] = useState(false);
-
-  useEffect(() => {
-    const headerObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHeaderVisible(true);
-          headerObserver.disconnect();
-        }
-      },
-      { threshold: 0.3, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    const gridObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setGridVisible(true);
-          gridObserver.disconnect();
-        }
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    if (headerRef.current) headerObserver.observe(headerRef.current);
-    if (gridRef.current) gridObserver.observe(gridRef.current);
-
-    return () => {
-      headerObserver.disconnect();
-      gridObserver.disconnect();
-    };
-  }, []);
-
-  return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-dark-card">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div 
-          ref={headerRef}
-          className="text-center mb-10 sm:mb-12 lg:mb-16"
-          style={{
-            opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? 'translateY(0)' : 'translateY(30px)',
-            transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-          }}
-        >
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-white mb-3 sm:mb-4">
-            What Our <span className="text-gold">Clients</span> Say
-          </h2>
-          <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our clients have to say about working with us.
-          </p>
-        </div>
-
-        {/* Testimonials Grid */}
-        <div ref={gridRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-black border border-dark-border rounded-xl p-5 sm:p-6 hover:border-gold/30 transition-all duration-300"
-              style={{
-                opacity: gridVisible ? 1 : 0,
-                transform: gridVisible ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.95)',
-                transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.15}s`,
-              }}
-            >
-              <div 
-                className="flex items-center space-x-3 mb-4"
-                style={{
-                  opacity: gridVisible ? 1 : 0,
-                  transform: gridVisible ? 'translateX(0)' : 'translateX(-20px)',
-                  transition: `all 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${0.2 + index * 0.15}s`,
-                }}
-              >
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-gold/30"
-                />
-                <div>
-                  <h4 className="text-white font-medium text-sm">{testimonial.name}</h4>
-                  <p className="text-gold text-xs">{testimonial.role}</p>
-                </div>
-              </div>
-              <p 
-                className="text-white/70 text-sm leading-relaxed"
-                style={{
-                  opacity: gridVisible ? 1 : 0,
-                  transform: gridVisible ? 'translateY(0)' : 'translateY(15px)',
-                  transition: `all 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${0.3 + index * 0.15}s`,
-                }}
-              >
-                "{testimonial.quote}"
-              </p>
-            </div>
           ))}
         </div>
       </div>
@@ -561,25 +397,27 @@ function CaseStudiesCTA() {
     <section className="py-16 sm:py-20 lg:py-24 bg-black" ref={ctaRef}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 
-          className="font-display text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-white mb-4 sm:mb-6"
+          className="font-display text-2xl sm:text-3xl lg:text-4xl text-white mb-6"
           style={{
             opacity: ctaVisible ? 1 : 0,
             transform: ctaVisible ? 'translateY(0)' : 'translateY(40px)',
             transition: 'all 0.9s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          Ready for Your <span className="text-gold">Success Story</span>?
+          Great systems don't just look good—they make your work <span className="text-gold">easier,</span> your brand <span className="text-gold">stronger,</span> and your communication <span className="text-gold">clearer.</span>
         </h2>
+        
         <p 
-          className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto mb-8 sm:mb-10"
+          className="text-white/60 text-base sm:text-lg mb-8"
           style={{
             opacity: ctaVisible ? 1 : 0,
             transform: ctaVisible ? 'translateY(0)' : 'translateY(40px)',
             transition: 'all 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s',
           }}
         >
-          Let's create a case study about your success. Contact us today to get started.
+          Every project begins with understanding how an agent works, then building solutions that feel natural, clear, and reliable.
         </p>
+        
         <Link
           to="/contact-us"
           className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gold text-black font-medium rounded-full hover:bg-gold-light transition-all duration-300 hover:scale-105 hover:shadow-gold-lg text-sm sm:text-base"
@@ -589,7 +427,7 @@ function CaseStudiesCTA() {
             transition: 'all 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s',
           }}
         >
-          Start Your Journey
+          Get Started
           <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
         </Link>
       </div>
@@ -602,8 +440,8 @@ export function CaseStudies() {
   return (
     <div className="min-h-screen bg-black">
       <CaseStudiesHero />
+      <IntroSection />
       <CaseStudiesList />
-      <TestimonialsSection />
       <CaseStudiesCTA />
     </div>
   );

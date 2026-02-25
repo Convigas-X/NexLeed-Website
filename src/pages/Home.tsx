@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { 
   ChevronDown, Rocket, Headphones, Settings, Shield, Home as HomeIcon, FileText, 
-  Target, Zap, ArrowUpRight
+  ArrowUpRight
 } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Link } from 'react-router-dom';
@@ -438,107 +438,6 @@ function WhyChooseSection() {
   );
 }
 
-// Services Preview Section
-function ServicesPreviewSection() {
-  const services = [
-    {
-      icon: Zap,
-      title: 'Modern Websites',
-      subtitle: 'for Real Estate',
-      description: 'Clean, fast, and purpose-driven websites built to highlight your brand.',
-      image: '/assets/service-website.jpg',
-    },
-    {
-      icon: Settings,
-      title: 'Streamlined Systems',
-      subtitle: 'and Workflows',
-      description: 'Organized pipelines and automated follow-ups for better client management.',
-      image: '/assets/service-crm.jpg',
-    },
-    {
-      icon: Target,
-      title: 'Exclusive Buyer',
-      subtitle: '& Seller Leads',
-      description: 'Targeted campaigns delivering high-intent inquiries directly to you.',
-      image: '/assets/service-leads.jpg',
-    },
-  ];
-  
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
-  const { containerRef: gridRef, isVisible: gridVisible } = useStaggerAnimation(3);
-
-  return (
-    <section id="services" className="py-16 sm:py-20 lg:py-24 bg-dark-card">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div 
-          ref={headerRef}
-          className="text-center mb-10 sm:mb-12 lg:mb-16"
-          style={{
-            opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? 'translateY(0)' : 'translateY(30px)',
-            transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-          }}
-        >
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-white mb-3 sm:mb-4">
-            Our <span className="text-gold">Services</span>
-          </h2>
-          <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto">
-            Thoughtfully crafted solutions designed to support modern real estate professionals.
-          </p>
-        </div>
-
-        {/* Services Grid */}
-        <div 
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10 lg:mb-12" 
-          ref={gridRef}
-        >
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="group bg-black border border-dark-border rounded-xl overflow-hidden hover:border-gold/50 transition-all duration-300"
-              style={{
-                opacity: gridVisible ? 1 : 0,
-                transform: gridVisible ? 'translateY(0)' : 'translateY(40px)',
-                transition: `all 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.15}s`,
-              }}
-            >
-              <div className="relative h-40 sm:h-44 lg:h-48 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
-              </div>
-              <div className="p-4 sm:p-5 lg:p-6">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gold/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
-                  <service.icon className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
-                </div>
-                <h3 className="font-display text-lg sm:text-xl text-white mb-1 sm:mb-2">
-                  {service.title} <span className="text-gold">{service.subtitle}</span>
-                </h3>
-                <p className="text-white/60 text-xs sm:text-sm">{service.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* View All Button */}
-        <div className="text-center">
-          <Link
-            to="/services"
-            className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gold text-black font-medium rounded-full hover:bg-gold-light transition-all duration-300 hover:scale-105 text-sm sm:text-base"
-          >
-            View All Services
-            <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // Testimonials Section
 function TestimonialsSection() {
   const testimonials = [
@@ -857,7 +756,6 @@ export function Home() {
       <LogoStrip />
       <WhoWeAreSection />
       <WhyChooseSection />
-      <ServicesPreviewSection />
       <TestimonialsSection />
       <FAQSection />
       <CTASection />
