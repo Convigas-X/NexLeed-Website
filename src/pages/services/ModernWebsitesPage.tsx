@@ -138,7 +138,7 @@ function OverviewSection() {
           >
             <div className="relative rounded-2xl overflow-hidden border border-dark-border">
               <img
-                src="/assets/service-website.jpg"
+                src="/assets/Website.png"
                 alt="Modern Real Estate Website"
                 className="w-full h-80 sm:h-96 object-cover"
               />
