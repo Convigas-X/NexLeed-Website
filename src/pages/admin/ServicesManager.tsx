@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Search, Edit2, Trash2, MoreVertical, Briefcase, Check, ArrowUpRight, GripVertical } from 'lucide-react';
+import { Plus, Search, Edit2, Trash2, MoreVertical, Briefcase, Check, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ImageUpload } from '@/components/ui/image-upload';

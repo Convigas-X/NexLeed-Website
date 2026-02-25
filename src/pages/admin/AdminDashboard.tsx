@@ -4,7 +4,7 @@ import {
   HelpCircle, Users, Settings, Menu, X, LogOut,
   ChevronRight, Eye, DollarSign
 } from 'lucide-react';
-import { Link, useLocation, Routes, Route, useNavigate } from 'react-router-dom';
+import { Link, useLocation, Routes, Route } from 'react-router-dom';
 import { DashboardOverview } from './DashboardOverview';
 import { TestimonialsManager } from './TestimonialsManager';
 import { ServicesManager } from './ServicesManager';

@@ -12,7 +12,6 @@ interface ImageUploadProps {
 export function ImageUpload({ 
   value, 
   onChange, 
-  placeholder = "/assets/default.jpg",
   className = ""
 }: ImageUploadProps) {
   const [isDragging, setIsDragging] = useState(false);

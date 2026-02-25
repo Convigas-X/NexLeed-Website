@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { Plus, Search, Edit2, Trash2, MoreVertical, DollarSign, Check, Sparkles, Crown, Gem, Zap, MapPin, Settings, Target, BarChart3, Users, MessageSquare } from 'lucide-react';
+import { Plus, Edit2, Trash2, MoreVertical, DollarSign, Check, Sparkles, Crown, Gem, Zap, MapPin, Settings, Target, BarChart3, Users, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Dialog,
   DialogContent,
@@ -16,12 +15,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@/components/ui/tabs';
 
 interface PricingPlan {
   id: string;
